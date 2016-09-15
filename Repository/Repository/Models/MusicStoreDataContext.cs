@@ -9,5 +9,8 @@ namespace Repository.Models
     public class MusicStoreDataContext : DbContext
     {
         public DbSet<Artist> Artists { get; set; }
+        public DbSet<Album> Albums { get; set; }
+
+        public DbSet<ArtistDetails> ArtistDetails { get; set; }
     }
 }

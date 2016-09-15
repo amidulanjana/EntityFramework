@@ -10,8 +10,17 @@ namespace Repository.Models
     {
         protected override void Seed(MusicStoreDataContext context)
         {
-            context.Artists.Add(new Artist() { name = "New Data1" });
-            context.Artists.Add(new Artist() { name = "New Data2" });
+            Artist artist = new Artist() { name = "Artist1" };
+            context.Artists.Add(artist);
+            context.Artists.Add(new Artist() { name = "Artist2" });
+
+            context.Albums.Add(new Album() { Artist = artist, Title = "album1" });
+            context.Albums.Add(new Album()
+            {
+                Artist = context.Artists.Add(new Artist() { name = "Artist3" }),
+                Title = "album2"
+            });
+
             context.SaveChanges();  
         }
     }

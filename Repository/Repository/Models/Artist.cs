@@ -14,7 +14,9 @@ namespace Repository.Models
         [StringLength(100,MinimumLength=5)]
         public string name { get; set; }
 
-        public int age { get; set; }
+        public virtual List<Album> Albums { get; set; }
+
+        public virtual ArtistDetails ArtistDetails { get; set; }
 
     }
 }

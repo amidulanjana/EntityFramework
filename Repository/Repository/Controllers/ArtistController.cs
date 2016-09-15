@@ -19,6 +19,20 @@ namespace Repository.Controllers
             return View(repository.GetAll());
         }
 
+        public ActionResult Details(int id)
+        {
+            Artist artist = repository.Get(id);
+            if (artist == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(artist);
+            }
+
+        }
+
         public ActionResult Create()
         {
             return View();
